@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Package list
+Vue-ressource : https://www.npmjs.com/package/vue-resource
+Vuetify : https://vuetifyjs.com/en/
