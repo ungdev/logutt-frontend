@@ -7,19 +7,9 @@ Convention des commits : https://www.conventionalcommits.org/en/v1.0.0-beta.2/
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run server
 ```
 npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration
