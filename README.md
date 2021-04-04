@@ -1,20 +1,19 @@
 # logutt-front
 
-Convention des commits : https://www.conventionalcommits.org/en/v1.0.0-beta.2/
-
 ## Project setup
+
 ```
+git clone git@github.com:LogUTT/frontend.git
+
+npm install -g @vue/cli
+
 npm install
 ```
+
+* Complete src/common/config.js
+
 
 ### Run server
 ```
 npm run serve
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Package list
-Vue-ressource : https://www.npmjs.com/package/vue-resource
-Vuetify : https://vuetifyjs.com/en/
