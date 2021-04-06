@@ -1,8 +1,8 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-// import JwtService from "@/common/jwt.service";
-import { API_URL, API_TOKEN } from "@/common/config";
+import JwtService from "@/common/jwt.service";
+import { API_URL } from "@/common/config";
 
 const ApiService = {
   init() {
@@ -13,7 +13,7 @@ const ApiService = {
   setHeader() {
     Vue.axios.defaults.headers.common[
       "Authorization"
-    ] = `Token ${API_TOKEN}`;
+    ] = `Token ${JwtService.getToken}`;
   },
   
   query(resource, params) {
