@@ -8,6 +8,8 @@ const ApiService = {
   init() {
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = API_URL;
+    //test connection backend
+    console.log(this.get("").then(res => console.log(res.data.message)))
   },
 
   setHeader() {
