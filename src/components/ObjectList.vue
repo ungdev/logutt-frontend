@@ -1,8 +1,8 @@
 <template>
   <v-data-table 
     :headers="headers" 
-    :items="objects" 
-    :items-per-page="5" 
+    :items="objects"
+    hide-default-footer
     :search="search"
   >
   <template v-slot:top>
@@ -54,7 +54,7 @@
 <script>
   import ObjectService from '../service/object.service';
   export default {
-    name: "RwvObjectList",
+    name: "ObjectList",
     components: {
     },
     data() {

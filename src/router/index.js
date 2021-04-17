@@ -8,7 +8,15 @@ export default new Router({
     routes: [
     {
       path: "/",
-      component: () => import("@/views/Home.vue"),
+      component: () => import("@/views/ViewHome.vue"),
+    },
+    {
+      path: "/liste-materiel",
+      component: () => import("@/views/ViewObjectList.vue"),
+    },
+    {
+      path: "/liste-associations",
+      component: () => import("@/views/ViewAssoList.vue"),
     }
   ]
 });
