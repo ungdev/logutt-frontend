@@ -15,6 +15,7 @@
 
 
 <script>
+  import AssociationService from '../service/association.service';
   import AssoList from '../components/AssoList.vue';
   import TheNavbar from '../components/TheNavbar.vue';
 
@@ -31,6 +32,7 @@
         var saisie = document.getElementById("inputName").value;
         if(saisie) {
           console.log(saisie);
+          AssociationService.post(saisie);
         } else {
           console.log("impossible champs vide")
         }

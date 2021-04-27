@@ -25,6 +25,8 @@
 </template>
 
 <script>
+  import StorageService from '../service/storage.service';
+
   export default {
     name: "SalleList",
     components: {
@@ -37,19 +39,16 @@
             text: 'Nom de l\'espace',
             align: 'start',
             sortable: false,
-            value: 'nom',
+            value: 'name',
           },
-          { text: 'Localisation dans l\'UTT', value: 'salle' }
+          { text: 'Localisation dans l\'UTT', value: 'room' }
         ],
-        objects: [],
-        owners: ['test', 'cerf'],
-        categories: ['test', 'cerf'],
-        materielTypes: ['test', 'cerf'],
+        salles: [],
       }
     },
-    //mounted() {
-    //  ObjectService.get().then(res => this.objects = res.data);
-    //}
+    mounted() {
+      StorageService.get().then(res => this.salles = res.data);
+    }
     
   }
 </script>
