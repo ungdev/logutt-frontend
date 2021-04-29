@@ -1,47 +1,38 @@
 <template>
-  <v-card
-    class="mx-auto overflow-hidden"
-    height="400"
-  >
-    <v-app-bar
-      color="deep-purple"
-      dark
+<div>
+  <v-app-bar
+      app
+      color="white"
+      flat
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-avatar
+        :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
+        size="32"
+      ></v-avatar>
 
-      <v-toolbar-title>Title</v-toolbar-title>
+      <v-tabs
+        centered
+        class="ml-n9"
+        color="grey darken-1"
+      >
+        <v-tab
+          v-for="link in links"
+          :key="link"
+        >
+          {{ link }}
+        </v-tab>
+      </v-tabs>
+
+      <v-avatar
+        class="hidden-sm-and-down"
+        color="grey darken-1 shrink"
+        size="32"
+      ></v-avatar>
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-    >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
-  </v-card>
+    
+</div>
+  
 </template>
 
 
@@ -52,6 +43,12 @@
     data: () => ({
       drawer: false,
       group: null,
+
+      links: [
+        'Matériel',
+        'Calendrier',
+        'Prêts',
+      ],
     }),
   }
 
