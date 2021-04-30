@@ -49,10 +49,8 @@ export default {
   },
   mounted() {
     AssociationService.get().then(res => {
-      console.log(res); 
       this.associations = res.data
-      console.log("Asso : " + this.associations);
-      });
+    });
   }
   
 };

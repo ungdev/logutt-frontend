@@ -1,9 +1,7 @@
 <template>
   <div>
-    <TheNavbar/>
-
     <v-form ref="form" class="form-new-asso" lazy-validation>
-      <v-text-field class="field-name" id="inputName" label="Nom nouvelle association" required></v-text-field>
+      <v-text-field class="field-name" v-model="name" label="Nom nouvelle association" required clearable></v-text-field>
 
       <v-btn color="success" class="btn btn-add mr-4" @click="newAsso"> + </v-btn>
     </v-form>
@@ -27,12 +25,17 @@
       TheNavbar
     },
 
+    data() {
+      return {
+        name: '',
+      }
+    },
+
     methods: {
       newAsso: function () {
-        var saisie = document.getElementById("inputName").value;
-        if(saisie) {
-          console.log(saisie);
-          AssociationService.post(saisie);
+        console.log(this.name);
+        if(this.name) {
+          AssociationService.post({ "name" : this.name });
         } else {
           console.log("impossible champs vide")
         }

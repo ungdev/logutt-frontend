@@ -1,6 +1,5 @@
 <template>
   <div>
-    <TheNavbar/>
     <SalleList/>
   </div>
 
@@ -9,14 +8,12 @@
 
 <script>
   import SalleList from '../components/SalleList.vue';
-  import TheNavbar from '../components/TheNavbar.vue';
 
   export default {
     name: 'ViewSalleList',
 
     components:{
       SalleList,
-      TheNavbar
     }
   }
 
