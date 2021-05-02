@@ -21,6 +21,9 @@ export default {
     background: #333;
   }
 
+  #app {
+    width: 100%;
+  }
 
   @keyframes textColor {
     0% {color: tomato;}
