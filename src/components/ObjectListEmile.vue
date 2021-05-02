@@ -14,7 +14,7 @@
 
           <v-row align="center" justify="space-around">
             <v-btn text><v-icon left>mdi-close</v-icon>Filtres</v-btn>
-            <v-btn depressed color="primary">Nouveau</v-btn>
+            <v-btn depressed color="primary"> <v-icon> mdi-plus </v-icon>Nouveau</v-btn>
           </v-row>
           <!-- SUB CARD END -->
         </v-sheet>
@@ -34,8 +34,8 @@
               two-line
             >
               <v-list-item
-                v-for="folder in objets"
-                :key="folder.title"
+                v-for="objet in objets"
+                :key="objet.title"
               >
                 <v-list-item-avatar>
                   <v-icon
@@ -47,9 +47,9 @@
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title v-text="folder.title"></v-list-item-title>
+                  <v-list-item-title v-text="objet.name"></v-list-item-title>
 
-                  <v-list-item-subtitle v-text="folder.subtitle"></v-list-item-subtitle>
+                  <v-list-item-subtitle v-text="objet.lendable"></v-list-item-subtitle>
                 </v-list-item-content>
 
                 <v-list-item-action>
@@ -67,29 +67,17 @@
 </template>
 
 <script>
+import ObjectService from "../service/object.service";
   export default {
     name: "ObjectList",
     data: () => ({
-      links: [
-        'Matériel',
-        'Calendrier',
-        'Prêts',
-      ],
-      objets: [
-        {
-          title: 'Appareil à crêpe',
-          subtitle: 'Quantité : 3',
-        },
-        {
-          title: 'Aspirateur',
-          subtitle: 'Quantité : 2',
-        },
-        {
-          title: 'Gillets jaune',
-          subtitle: 'Quantité : 34',
-        },
-      ],
+      objets: [],
     }),
+
+  mounted() {
+    ObjectService.get().then((res) => (this.objets = res.data));
+    console.log(this.objets);
+  },
   }
 </script>
 

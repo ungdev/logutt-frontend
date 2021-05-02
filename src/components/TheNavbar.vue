@@ -1,11 +1,15 @@
 <template>
         <nav id="menu">
             <ul id="menu-closed">
-                <li><img src="../assets/images/logo_logutt.jpg" alt="logo LogUTT" class="logo-logutt"></li>  
+                <!--<li><img src="../assets/images/logo_logutt.jpg" alt="logo LogUTT" class="logo-logutt"></li>-->
                 <li><router-link to="/liste-materiel" class="texte-menu">Matériel</router-link></li>
+                <li><router-link to="/calendrier" class="texte-menu">Calendrier</router-link></li>
+                <li><router-link to="/prets" class="texte-menu">Prêts</router-link></li>
+                <li><router-link to="/categories" class="texte-menu">Catégories</router-link></li>
                 <li><router-link to="/liste-associations" class="texte-menu">Associations</router-link></li>
+                <li><router-link to="/equipe-log" class="texte-menu">Équipe log</router-link></li>
                 <li><router-link to="/liste-salles" class="texte-menu">Espaces de stockage</router-link></li>
-                <li><router-link to="/contact" class="texte-menu">Nous contacter</router-link></li>
+                <li><v-icon> mdi-account </v-icon>Name</li>
                 <li><a href="#menu-closed">&#215; Close menu</a></li>
                 <li><a href="#menu">&#9776; Menu</a></li>
             </ul>
@@ -27,8 +31,7 @@
 <style scoped lang="scss">
 nav {
   font-size: 14px;
-  background-color: rgb(38, 47, 85);
-  box-shadow: 0 1px 2px rgba(19, 51, 61, 0.5);
+  background-color: white;
   margin: 0 0 3em;
   padding: 0 1em;
   height: 55px; /* Menu height */
@@ -48,7 +51,7 @@ nav li { display: inline-block; }
 nav a {
   display: inline-block;
   padding: 0 1em;
-  color: white;
+  color: black;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -60,7 +63,8 @@ nav a {
   margin-right: 4px;
 }
 
-nav a:hover { background-color: rgba(255, 255, 255, 0.08); 
+nav a:hover { 
+    background-color: rgba(46, 42, 42, 0.582); 
     border-radius: 20px;
  }
 
