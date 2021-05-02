@@ -2,7 +2,6 @@
   <div>
     <SalleList/>
   </div>
-
 </template>
 
 
