@@ -21,6 +21,18 @@ export default new Router({
     {
       path: "/liste-salles",
       component: () => import("@/views/ViewSalleList.vue"),
+    },
+    {
+      path: "/calendrier",
+      component: () => import("@/views/ViewCalendrier.vue"),
+    },
+    {
+      path: "/prets",
+      component: () => import("@/views/ViewPretList.vue"),
+    },
+    {
+      path: "/liste-categories",
+      component: () => import("@/views/ViewCategorieList.vue"),
     }
   ]
 });

@@ -5,7 +5,7 @@
                 <li><router-link to="/liste-materiel" class="texte-menu">Matériel</router-link></li>
                 <li><router-link to="/calendrier" class="texte-menu">Calendrier</router-link></li>
                 <li><router-link to="/prets" class="texte-menu">Prêts</router-link></li>
-                <li><router-link to="/categories" class="texte-menu">Catégories</router-link></li>
+                <li><router-link to="/liste-categories" class="texte-menu">Catégories</router-link></li>
                 <li><router-link to="/liste-associations" class="texte-menu">Associations</router-link></li>
                 <li><router-link to="/equipe-log" class="texte-menu">Équipe log</router-link></li>
                 <li><router-link to="/liste-salles" class="texte-menu">Espaces de stockage</router-link></li>
@@ -33,7 +33,6 @@ nav {
   font-size: 14px;
   background-color: white;
   margin: 0 0 3em;
-  padding: 0 1em;
   height: 55px; /* Menu height */
   overflow: hidden; /* Don't show anything outside the nav */
 }
@@ -46,7 +45,9 @@ nav ul {
   position: relative; /* Position the menu button relative to this item */
 }
 
-nav li { display: inline-block; }
+nav li { 
+  display: inline-block; 
+}
 
 nav a {
   display: inline-block;
@@ -59,12 +60,10 @@ nav a {
   white-space: nowrap;
   line-height: 55px; /* Menu height */
   height: 55px; /* Menu height */
-  margin-left: 4px;
-  margin-right: 4px;
 }
 
 nav a:hover { 
-    background-color: rgba(46, 42, 42, 0.582); 
+    background-color: rgba(46, 42, 42, 0.582);
     border-radius: 20px;
  }
 
@@ -72,7 +71,7 @@ nav li:last-child { /* The menu button */
   position: absolute; /* Move the menu button out of flow */
   right: 0;
   bottom: 55px; /* Move upwards, the same distance as the menu height */
-  background-image: linear-gradient(to right, rgba(38, 47, 85, 0) 0, rgba(38, 47, 85, 1) 2em);
+  background-image: linear-gradient(to right, rgba(119, 120, 124, 0) 0, #333 2em);
   padding-left: 3em;
 }
 
@@ -115,71 +114,3 @@ nav#menu:target li:nth-last-child(2) {
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<template>
-<div>
-  <v-app-bar
-      app
-      color="white"
-      flat
-    >
-      <v-avatar
-        :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
-        size="32"
-      ></v-avatar>
-
-      <v-tabs
-        centered
-        class="ml-n9"
-        color="grey darken-1"
-      >
-        <v-tab
-          v-for="link in links"
-          :key="link"
-        >
-          {{ link }}
-        </v-tab>
-      </v-tabs>
-
-      <v-avatar
-        class="hidden-sm-and-down"
-        color="grey darken-1 shrink"
-        size="32"
-      ></v-avatar>
-    </v-app-bar>
-
-    
-</div>
-  
-</template>
-
-
-<script>
-  export default {
-    name: 'TheNavbar',
-
-    data: () => ({
-      drawer: false,
-      group: null,
-
-      links: [
-        'Matériel',
-        'Calendrier',
-        'Prêts',
-      ],
-    }),
-  }
-
-</script>-->
