@@ -46,10 +46,7 @@
                       </v-col>
                     </v-row>
                   </v-container>
-                  <small
-                    ><span class="star-required">*</span> indiquez les champs
-                    requis</small
-                  >
+                  <small><span class="star-required">*</span> indiquez les champs requis</small>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -93,7 +90,7 @@
                     </v-btn>
 
                     <!-- Icon de suppression d'un élément -->
-                    <VIconSuppression />
+                    <VIconSuppression database="listeSalle" :donnees=salle />
 
                   </v-list-item-action>
                 </v-col>
@@ -180,10 +177,6 @@ export default {
 
 .list-item-action {
   text-align: right;
-}
-
-.v-application .headline {
-  font-size: 1.2rem !important;
 }
 
 .star-required {

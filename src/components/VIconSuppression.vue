@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import StorageService from "../service/storage.service";
+import AssociationService from "../service/association.service";
 
 export default {
   name: "VIconSuppression",
@@ -41,15 +43,36 @@ export default {
         validSupp: false,
       }
     },
-    methods: {
+
+  props: ['database', 'donnees'],
+
+  methods: {
     confirmer: function () {
       this.validSupp = false;
+      switch (this.database) {
+        case 'listeSalle':  // BDD des salles de stockage
+          StorageService.delete(this.donnees.id)
+          break;
+        case 'listeAsso':
+          AssociationService.delete(this.donnees.id);
+          break;
+        case 'Papayas':
+          console.log('Mangoes and papayas are $2.79 a pound.');
+          // expected output: "Mangoes and papayas are $2.79 a pound."
+          break;
+        default:
+          console.log(this.database + " n'est pas une valeure définie !");
+      }
       // TODO Récupérer l'objet et envoyer une requête à l'API pour le supprimer
     },
-    }
+  }
 };
 </script>
 
 <style lang="scss">
+
+.v-application .headline {
+  font-size: 1.2rem !important;
+}
 
 </style>

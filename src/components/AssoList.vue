@@ -36,10 +36,7 @@
                       </v-col>
                     </v-row>
                   </v-container>
-                  <small
-                    ><span class="star-required">*</span> indiquez les champs
-                    requis</small
-                  >
+                  <small><span class="star-required">*</span> indiquez les champs requis</small>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -58,7 +55,7 @@
       </v-col>
 
       <v-col cols="12" sm="8">
-          <v-row justify="center">
+          <v-row justify="center" class="listeAsso">
             <v-expansion-panels popout>
               <v-expansion-panel
                 v-for="association in this.associations"
@@ -68,6 +65,9 @@
                   {{ association.name }}
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
+                  <!-- Icon de suppression d'un élément -->
+                  <VIconSuppression database="listeAsso" :donnees=association />
+
                   <!-- Tableau des membres de l'assoc qui ont des accès sur LogUTT -->
                   <v-simple-table dense>
                     <template v-slot:default>
@@ -84,7 +84,13 @@
                           <td>Kevin</td>
                           <td>cerf@utt</td>
                           <td>Con</td>
-                          <td>Modifier --- Supprimer</td>
+                          <td>
+                            <v-btn icon class="btn-icon">
+                              <v-icon color="grey lighten-1">mdi-square-edit-outline</v-icon>
+                            </v-btn>
+                            <!-- Icon de suppression d'un membre de l'asso -->
+                            <VIconSuppression database="listeAsso" :donnees=association />
+                          </td>
                         </tr>
                       </tbody>
                       <p>Mettre un bouton pour ajouter un etu à l'asso</p>
@@ -102,9 +108,15 @@
 
 <script>
 import AssociationService from "../service/association.service";
+import VIconSuppression from "./VIconSuppression.vue";
+
 export default {
   name: "AssoList",
-
+  
+  components: {
+    VIconSuppression
+  },
+  
   data() {
     return {
       associations: [],
@@ -146,5 +158,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+  .listeAsso {
+    padding: 12px;
+  }
 
 </style>
