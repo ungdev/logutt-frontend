@@ -34,6 +34,7 @@
 <script>
 import StorageService from "../service/storage.service";
 import AssociationService from "../service/association.service";
+import CategorieService from "../service/category.service";
 
 export default {
   name: "VIconSuppression",
@@ -56,9 +57,8 @@ export default {
         case 'listeAsso':
           AssociationService.delete(this.donnees.id);
           break;
-        case 'Papayas':
-          console.log('Mangoes and papayas are $2.79 a pound.');
-          // expected output: "Mangoes and papayas are $2.79 a pound."
+        case 'listeCategorie':
+          CategorieService.delete(this.donnees.id)
           break;
         default:
           console.log(this.database + " n'est pas une valeure définie !");

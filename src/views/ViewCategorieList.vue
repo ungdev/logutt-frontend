@@ -1,12 +1,18 @@
 <template>
-    <p>Liste des catégories : fonctionnalité à venir</p>
+  <div>
+    <CategorieList/>
+  </div>
 </template>
 
 <script>
+import CategorieList from "../components/CategorieList";
 
 export default {
-  name: "CategorieList",
+  name: "ViewCategorieList",
   
+  components: {
+    CategorieList
+  },
 };
 </script>
 
