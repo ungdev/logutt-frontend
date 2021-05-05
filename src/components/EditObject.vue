@@ -1,0 +1,102 @@
+<template>
+  <v-row justify="center">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="600px"
+    >
+      <v-card>
+        <v-card-title>
+          <span v-if="value.id" class="headline">Object {{ this.value.id }}</span>
+          <span v-else class="headline">New value</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="6"
+                md="8"
+              >
+                <v-text-field
+                  v-model="value.name"
+                  label="Name"
+                  dense
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="4"
+              >
+                <v-select
+                  v-model="value.category_id"
+                  :items="categories"
+                  item-text="name"
+                  item-value="id"
+                  label="Category"
+                  dense
+                ></v-select>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-textarea
+                  v-model="value.description"
+                  dense
+                  label="Description (optionnal)"
+                ></v-textarea>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="6"
+                md="4"
+              >
+                <v-checkbox
+                  v-model="value.lendable"
+                  label="Lendable"
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="closeDialog()"
+          >
+            Close
+          </v-btn>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="closeDialog()"
+          >
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+</template>
+
+<script>
+  export default {
+    name: "EditObject",
+    props: {
+      dialog: {type: Boolean, default: false},
+      value: Object,
+      categories: Array,
+    },
+    methods: {
+      closeDialog() {
+        this.$emit('close');
+      }
+    },
+  }
+</script>
