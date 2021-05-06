@@ -41,6 +41,9 @@ body {
   overflow: hidden;
 }
 
+.v-application--wrap {
+    background:#333!important;
+}
 
 .v-application a {
     color: turquoise;

@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
   .v-application--wrap {
-    background: #333;
+    background:#eeeeee;
   }
 
   #app {
