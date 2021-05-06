@@ -182,4 +182,12 @@ export default {
 .star-required {
   color: red;
 }
+
+.v-list-item__content {
+  padding-top: 28px!important;
+}
+
+.col-salle-right {
+  max-width: 60px!important;
+}
 </style>
