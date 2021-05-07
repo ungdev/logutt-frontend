@@ -103,8 +103,8 @@
 </template>
 
 <script>
-import CategoryService from "../service/category.service";
-import VIconSuppression from "./VIconSuppression.vue";
+import CategoryService from "../../service/category.service";
+import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
   name: "CategorieList",

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CategorieList from "../components/CategorieList";
+import CategorieList from "../components/categorie/CategorieList";
 
 export default {
   name: "ViewCategorieList",
