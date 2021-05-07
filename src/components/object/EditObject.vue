@@ -95,7 +95,7 @@
     },
     methods: {
       closeDialog() {
-        this.$emit('close');
+        this.$emit('close', false);
       }
     },
   }
