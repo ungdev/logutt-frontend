@@ -20,7 +20,7 @@ export default new Router({
     },
     {
       path: "/liste-salles",
-      component: () => import("@/views/ViewSalleList.vue"),
+      component: () => import("@/views/ViewStorageList.vue"),
     },
     {
       path: "/calendrier",
