@@ -16,7 +16,7 @@ export default new Router({
     },
     {
       path: "/liste-associations",
-      component: () => import("@/views/ViewAssoList.vue"),
+      component: () => import("@/views/ViewAssociationList.vue"),
     },
     {
       path: "/liste-salles",
