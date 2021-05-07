@@ -110,8 +110,8 @@
 
 
 <script>
-import AssociationService from "../service/association.service";
-import VIconSuppression from "./VIconSuppression.vue";
+import AssociationService from "../../service/association.service";
+import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
   name: "AssoList",

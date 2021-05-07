@@ -6,7 +6,7 @@
 
 
 <script>
-  import SalleList from '../components/SalleList.vue';
+  import SalleList from '../components/storage/SalleList.vue';
 
   export default {
     name: 'ViewSalleList',

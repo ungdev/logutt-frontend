@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import ObjectService from "../service/object.service";
+import ObjectService from "../../service/object.service";
   export default {
     name: "ObjectList",
     data: () => ({

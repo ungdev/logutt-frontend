@@ -4,7 +4,7 @@
 
 
 <script>
-import AssoList from "../components/AssoList.vue";
+import AssoList from "../components/association/AssoList.vue";
 
 export default {
   name: "ViewAssoList",
