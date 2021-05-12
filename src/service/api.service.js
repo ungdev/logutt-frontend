@@ -2,14 +2,10 @@ import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import JwtService from "@/common/jwt.service";
-import { API_URL } from "@/common/config";
 
 const ApiService = {
   init() {
     Vue.use(VueAxios, axios);
-    Vue.axios.defaults.baseURL = API_URL;
-    //test connection backend
-    console.log(this.get("").then(res => console.log(res.data.message)))
   },
 
   setHeader() {

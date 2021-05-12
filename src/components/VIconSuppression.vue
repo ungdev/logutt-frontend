@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import StorageService from "../service/storage.service";
-import AssociationService from "../service/association.service";
-import CategorieService from "../service/category.service";
+import StorageService from "../service/logutt/storage.service";
+import AssociationService from "../service/logutt/association.service";
+import CategorieService from "../service/logutt/category.service";
 
 export default {
   name: "VIconSuppression",

@@ -1,7 +1,8 @@
-import ApiService from "./api.service";
+import ApiService from "../api.service";
+import { API_URL } from "@/common/config";
 
 const ressource = (objectId) => {
-  return "objects/" + objectId + "/instances";
+  return API_URL + "objects/" + objectId + "/instances";
 };
 
 export default {

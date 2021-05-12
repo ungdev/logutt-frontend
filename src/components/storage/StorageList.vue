@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import StorageService from "../../service/storage.service";
+import StorageService from "../../service/logutt/storage.service";
 import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
