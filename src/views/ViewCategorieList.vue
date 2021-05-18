@@ -39,7 +39,6 @@ export default {
     closeDialog(categorie) {
       this.dialog = false;
       if(categorie){
-        console.log(categorie)
         if(categorie.id == null)
           CategoryService.post(categorie);
         else

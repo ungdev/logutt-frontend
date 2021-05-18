@@ -3,7 +3,7 @@
     <template v-slot:searchBar>
       <storage-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
     </template>
-    <storage-list :search="search"/>
+    <storage-list :search="search" @openDialogEditSalle="openDialog"/>
     <edit-storage v-model="selectedStorage" :dialog="dialog" @close="closeDialog"/>
   </list>
 </template>
@@ -14,6 +14,7 @@
   import StorageList from "../components/storage/StorageList";
   import EditStorage from '../components/storage/EditStorage.vue';
   import List from "../components/List";
+  import StorageService from '../service/storage.service';
 
   export default {
     name: 'ViewSalleList',
@@ -33,15 +34,18 @@
       filtersChanged(field) {
         this.search = field;
       },
-      openDialog(categorie) {
-        // TODO vrai traitement
-        this.selectedCategorie = categorie;
+      openDialog(storage) {
+        this.selectedStorage = storage;
         this.dialog = true;
       },
-      closeDialog(categorie) {
-        // TODO vrai traitement
-        console.log(categorie);
+      closeDialog(storage) {
         this.dialog = false;
+        if(storage){
+          if(storage.id == null)
+            StorageService.post(storage);
+          else
+            StorageService.update(storage.id, storage);
+        }
       }
     }
   }

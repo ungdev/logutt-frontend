@@ -77,8 +77,8 @@ export default {
   },
   methods: {
     openDialogEditCategorie(categorie) {
-        this.$emit('openDialogEditCategorie', categorie);
-      },
+      this.$emit('openDialogEditCategorie', categorie);
+    },
   },
   mounted() {
     CategoryService.get().then((res) => (this.categories = res.data));

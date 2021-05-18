@@ -24,7 +24,7 @@
             </v-col>
             <v-col class="col-salle col-salle-right">
               <v-list-item-action class="list-item-action">
-                <v-btn icon class="btn-icon">
+                <v-btn icon class="btn-icon" @click="openDialogEditSalle(salle)">
                   <v-icon color="grey lighten-1">mdi-square-edit-outline</v-icon>
                 </v-btn>
 
@@ -66,6 +66,9 @@ export default {
     };
   },
   methods: {
+    openDialogEditSalle(salle) {
+      this.$emit('openDialogEditSalle', salle);
+    },
   },
   mounted() {
     StorageService.get().then((res) => (this.salles = res.data));
