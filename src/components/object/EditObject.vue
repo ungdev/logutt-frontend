@@ -70,14 +70,14 @@
             text
             @click="closeDialog()"
           >
-            Close
+            Annuler
           </v-btn>
           <v-btn
             color="blue darken-1"
             text
             @click="closeAndSaveDialog()"
           >
-            Save
+            Enregistrer
           </v-btn>
         </v-card-actions>
       </v-card>

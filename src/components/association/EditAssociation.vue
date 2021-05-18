@@ -26,7 +26,7 @@
             Annuler
           </v-btn>
           <v-btn color="blue darken-1" :disabled="isDisable" text @click="commitAssociation">
-            Ajouter
+            Enregistrer
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -51,7 +51,7 @@
       closeDialog() {
         this.$emit('close', false);
       },
-      commitAssociation: function () {
+      commitAssociation() {
         this.$emit('close', this.value);
       },
     },

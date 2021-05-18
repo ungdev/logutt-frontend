@@ -36,7 +36,7 @@
             Annuler
           </v-btn>
           <v-btn color="blue darken-1" :disabled="isDisable" text @click="newStorage">
-            Ajouter
+            Enregistrer
           </v-btn>
         </v-card-actions>
       </v-card>

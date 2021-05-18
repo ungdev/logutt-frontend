@@ -15,9 +15,9 @@
             {{ association.name }}
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-            <v-btn icon class="btn-icon">
-                        <v-icon color="grey lighten-1">mdi-square-edit-outline</v-icon>
-                      </v-btn>
+            <v-btn icon class="btn-icon" @click="openDialogEditAssociation(association)">
+              <v-icon color="grey lighten-1">mdi-square-edit-outline</v-icon>
+            </v-btn>
             <!-- Icon de suppression d'un élément -->
             <VIconSuppression database="listeAsso" :donnees=association />
 
@@ -73,6 +73,9 @@ export default {
     };
   },
   methods: {
+    openDialogEditAssociation(association) {
+      this.$emit('openDialogEditAssociation', association);
+    },
   },
   mounted() {
     AssociationService.get().then((res) => (this.associations = res.data));
