@@ -3,7 +3,7 @@
     <template v-slot:searchBar>
       <categorie-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
     </template>
-    <categorie-list :search="search" @openDialogEditCategorie="openDialog"/>
+    <categorie-list :search="search" @openDialogNewSubCategorie="openDialogNewSubCategorie" @openDialogEditCategorie="openDialog"/>
     <edit-categorie v-model="selectedCategorie" :dialog="dialog" @close="closeDialog"/>
   </list>
 </template>
@@ -34,6 +34,10 @@ export default {
     },
     openDialog(categorie) {
       this.selectedCategorie = categorie;
+      this.dialog = true;
+    },
+    openDialogNewSubCategorie(parentCategorie){
+      this.selectedCategorie = {parent_id: parentCategorie.id};
       this.dialog = true;
     },
     closeDialog(categorie) {

@@ -38,7 +38,7 @@
           </v-btn>
           <v-btn color="blue darken-1" :disabled="isDisable" text @click="newStorage">
             <span v-if="value.id">Enregistrer</span>
-          <span v-else>Ajouter</span>
+            <span v-else>Ajouter</span>
           </v-btn>
         </v-card-actions>
       </v-card>
