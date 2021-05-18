@@ -25,8 +25,8 @@
           <v-btn color="blue darken-1" text @click="closeDialog">
             Annuler
           </v-btn>
-          <v-btn color="blue darken-1" :disabled="isDisable" text @click="newCategorie">
-            Ajouter
+          <v-btn color="blue darken-1" id="add-btn" :disabled="isDisable" text @click="commitCategorie">
+            Enregistrer
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -51,7 +51,7 @@
       closeDialog() {
         this.$emit('close', false);
       },
-      newCategorie: function () {
+      commitCategorie() {
         this.$emit('close', this.value);
       },
     },
