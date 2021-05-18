@@ -4,6 +4,7 @@
       label="Rechercher"
       filled
       rounded
+      clearable
       style="padding: 10px"
       @keyup="searchField($event.target.value)"
     ></v-text-field>
