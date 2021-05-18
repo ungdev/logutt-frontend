@@ -7,8 +7,8 @@
     >
       <v-card>
         <v-card-title>
-          <span v-if="value.id" class="headline">Object {{ this.value.id }}</span>
-          <span v-else class="headline">New value</span>
+          <span v-if="value.id" class="headline">{{ this.value.name }}</span>
+          <span v-else class="headline">Nouvel object</span>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -20,7 +20,7 @@
               >
                 <v-text-field
                   v-model="value.name"
-                  label="Name"
+                  label="Nom*"
                   dense
                   required
                 ></v-text-field>
@@ -35,7 +35,7 @@
                   :items="categories"
                   item-text="name"
                   item-value="id"
-                  label="Category"
+                  label="Catégorie*"
                   dense
                 ></v-select>
               </v-col>
@@ -45,7 +45,7 @@
                 <v-textarea
                   v-model="value.description"
                   dense
-                  label="Description (optionnal)"
+                  label="Description"
                 ></v-textarea>
               </v-col>
             </v-row>
@@ -57,11 +57,12 @@
               >
                 <v-checkbox
                   v-model="value.lendable"
-                  label="Lendable"
+                  label="Prêtable"
                 ></v-checkbox>
               </v-col>
             </v-row>
           </v-container>
+          <small><span class="star-required">*</span> indiquez les champs requis</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -77,7 +78,8 @@
             text
             @click="closeAndSaveDialog()"
           >
-            Enregistrer
+            <span v-if="value.id">Enregistrer</span>
+            <span v-else>Ajouter</span>
           </v-btn>
         </v-card-actions>
       </v-card>
