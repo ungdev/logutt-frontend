@@ -8,7 +8,7 @@
       @keyup="searchField($event.target.value)"
     ></v-text-field>
     <v-row align="center" justify="space-around">
-      <v-btn depressed color="primary" @click="openDialogNewCategorie"> <v-icon> mdi-plus </v-icon>Nouveau</v-btn>
+      <v-btn depressed class="btn-new" color="primary" @click="openDialogNewCategorie"> <v-icon> mdi-plus </v-icon>Nouvelle catégorie</v-btn>
     </v-row>
   </v-container>
 </template>
@@ -29,3 +29,9 @@
     },
   }
 </script>
+
+<style>
+  .btn-new {
+    margin-bottom: 5%;
+  }
+</style>

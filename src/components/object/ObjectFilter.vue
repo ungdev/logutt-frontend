@@ -29,3 +29,9 @@
     },
   }
 </script>
+
+<style>
+  .btn-new {
+    margin-bottom: 5%;
+  }
+</style>
