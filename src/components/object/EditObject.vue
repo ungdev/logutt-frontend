@@ -75,7 +75,7 @@
           <v-btn
             color="blue darken-1"
             text
-            @click="closeDialog()"
+            @click="closeAndSaveDialog()"
           >
             Save
           </v-btn>
@@ -96,6 +96,9 @@
     methods: {
       closeDialog() {
         this.$emit('close', false);
+      },
+      closeAndSaveDialog() {
+        this.$emit('close', this.value);
       }
     },
   }

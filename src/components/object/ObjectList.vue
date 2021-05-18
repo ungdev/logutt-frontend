@@ -30,7 +30,7 @@
           </v-list-item-content>
 
           <v-list-item-action>
-            <v-btn icon>
+            <v-btn icon @click="openDialogEditObject(objet)">
               <v-icon color="grey lighten-1">mdi-information</v-icon>
             </v-btn>
           </v-list-item-action>
@@ -47,10 +47,14 @@ import ObjectService from "../../service/object.service";
     props: {
       search: String,
     },
+    methods: {
+      openDialogEditObject(object) {
+        this.$emit('openDialogEditObject', object);
+      },
+    },
     data: () => ({
       objects: [],
     }),
-
     mounted() {
       ObjectService.get().then((res) => (this.objects = res.data));
     },
