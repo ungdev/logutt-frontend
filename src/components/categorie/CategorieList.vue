@@ -13,6 +13,9 @@
             {{ categorie.name }}
           </v-expansion-panel-header>
           <v-expansion-panel-content>
+              <v-btn icon class="btn-icon" @click="openDialogNewSubCategorie(categorie)">
+                <v-icon color="grey lighten-1">mdi-plus-box</v-icon>
+              </v-btn>
               <v-btn icon class="btn-icon" @click="openDialogEditCategorie(categorie)">
                 <v-icon color="grey lighten-1">mdi-square-edit-outline</v-icon>
               </v-btn>
@@ -78,6 +81,9 @@ export default {
   methods: {
     openDialogEditCategorie(categorie) {
       this.$emit('openDialogEditCategorie', categorie);
+    },
+    openDialogNewSubCategorie(parentCategorie) {
+      this.$emit('openDialogNewSubCategorie', parentCategorie);
     },
   },
   mounted() {
