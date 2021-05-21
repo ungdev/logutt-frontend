@@ -9,9 +9,9 @@
                 <li><router-link to="/liste-associations" class="texte-menu">Associations</router-link></li>
                 <li><router-link to="/equipe-log" class="texte-menu">Équipe log</router-link></li>
                 <li><router-link to="/liste-salles" class="texte-menu">Espaces de stockage</router-link></li>
-                <li><v-icon> mdi-account </v-icon>Name</li>
+                <li><div class="user-name"><v-icon> mdi-account </v-icon>Nom Prénom</div></li>
                 <li><a href="#menu-closed">&#215; Close menu</a></li>
-                <li><a href="#menu">&#9776; Menu</a></li>
+                <li><a href="#menu" class="case-menu-phone">&#9776; Menu</a></li>
             </ul>
         </nav>
 </template>
@@ -33,6 +33,7 @@ nav {
   font-size: 14px;
   background-color: white;
   margin: 0 0 3em;
+  padding-left: 2em;
   height: 55px; /* Menu height */
   overflow: hidden; /* Don't show anything outside the nav */
 }
@@ -49,10 +50,10 @@ nav li {
   display: inline-block; 
 }
 
-nav a {
+nav a, .user-name {
   display: inline-block;
   padding: 0 1em;
-  color: black;
+  color: rgb(25, 118, 210);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -62,8 +63,10 @@ nav a {
   height: 55px; /* Menu height */
 }
 
+
 nav a:hover { 
-    background-color: rgba(46, 42, 42, 0.582);
+    background: rgba(25,118,210,1);
+    color: white;
     border-radius: 20px;
  }
 
@@ -71,8 +74,13 @@ nav li:last-child { /* The menu button */
   position: absolute; /* Move the menu button out of flow */
   right: 0;
   bottom: 55px; /* Move upwards, the same distance as the menu height */
-  background-image: linear-gradient(to right, rgba(119, 120, 124, 0) 0, #333 2em);
+  background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(25,118,210,1) 27%);
   padding-left: 3em;
+}
+
+nav .case-menu-phone {
+  color: white;
 }
 
 nav li:nth-last-child(2) { /* The close button */ display: none; }
