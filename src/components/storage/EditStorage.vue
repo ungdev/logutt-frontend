@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
       <v-card>
         <v-card-title>
-          <span v-if="value.id" class="headline">{{ this.value.name }}</span>
+          <span v-if="value.id" class="headline">Modifier l'espace de stockage</span>
           <span v-else class="headline">Nouvel espace de stockage</span>
         </v-card-title>
         <v-card-text>
@@ -33,10 +33,10 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="closeDialog">
+          <v-btn color="blue darken-1" text @click="cancel">
             Annuler
           </v-btn>
-          <v-btn color="blue darken-1" :disabled="isDisable" text @click="newStorage">
+          <v-btn color="blue darken-1" :disabled="isDisable" text @click="save">
             <span v-if="value.id">Enregistrer</span>
             <span v-else>Ajouter</span>
           </v-btn>
@@ -56,15 +56,19 @@
     }),
     computed: {
       isDisable: function() {
-        return this.name ? true : false;
+        if(this.value.name && this.value.room) {
+          return false;
+        } else {
+          return true;
+        }
       }
     },
     methods: {
-      closeDialog() {
-        this.$emit('close', false);
+      cancel() {
+        this.$emit('cancel', false);
       },
-      newStorage: function () {
-        this.$emit('close', this.value);
+      save: function () {
+        this.$emit('save', this.value);
       },
     },
   }

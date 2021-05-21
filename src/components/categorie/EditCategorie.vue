@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
       <v-card>
         <v-card-title>
-          <span v-if="value.id" class="headline">{{ this.value.name }}</span>
+          <span v-if="value.id" class="headline">Modifier la catégorie</span>
           <span v-else class="headline">Nouvelle catégorie</span>
         </v-card-title>
         <v-card-text>
@@ -23,10 +23,10 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="closeDialog">
+          <v-btn color="blue darken-1" text @click="cancel">
             Annuler
           </v-btn>
-          <v-btn color="blue darken-1" id="add-btn" :disabled="isDisable" text @click="commitCategorie">
+          <v-btn color="blue darken-1" id="add-btn" :disabled="isDisable" text @click="save">
             <span v-if="value.id">Enregistrer</span>
             <span v-else>Ajouter</span>
           </v-btn>
@@ -46,15 +46,15 @@
     }),
     computed: {
       isDisable: function() {
-        return this.name ? true : false;
+        return this.value.name ? false : true;
       }
     },
     methods: {
-      closeDialog() {
-        this.$emit('close', false);
+      cancel() {
+        this.$emit('cancel', false);
       },
-      commitCategorie() {
-        this.$emit('close', this.value);
+      save() {
+        this.$emit('save', this.value);
       },
     },
   }

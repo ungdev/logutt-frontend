@@ -4,7 +4,7 @@
       <categorie-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
     </template>
     <categorie-list :search="search" @openDialogNewSubCategorie="openDialogNewSubCategorie" @openDialogEditCategorie="openDialog"/>
-    <edit-categorie v-model="selectedCategorie" :dialog="dialog" @close="closeDialog"/>
+    <edit-categorie v-model="selectedCategorie" :dialog="dialog" @save="save" @cancel="cancel"/>
   </list>
 </template>
 
@@ -26,29 +26,47 @@ export default {
   data: () => ({
     search: '',
     dialog: false,
-    selectedCategorie: {}
+    selectedCategorie: {},
+    oldCategorie: {}
   }),
   methods: {
     filtersChanged(field) {
       this.search = field;
     },
     openDialog(categorie) {
-      this.selectedCategorie = categorie;
+      this.selectedCategorie = categorie ? {...categorie} : {};
+      this.oldCategorie = categorie;
       this.dialog = true;
     },
     openDialogNewSubCategorie(parentCategorie){
       this.selectedCategorie = {parent_id: parentCategorie.id};
       this.dialog = true;
     },
-    closeDialog(categorie) {
+
+    cancel() {
+      Object.assign(this.selectedCategorie, this.oldCategorie);
       this.dialog = false;
-      if(categorie){
-        if(categorie.id == null)
-          CategoryService.post(categorie);
-        else
-          CategoryService.update(categorie.id, categorie);
+    },
+
+    save() {
+        if (this.selectedCategorie.id) {
+          this.checkCategorieChange();
+        } else {
+          this.createCategorie();
+        }
+        this.selectedCategorie, this.oldCategorie = {};
+        this.dialog = false;
+      },
+      async checkCategorieChange() {
+        if (JSON.stringify(this.selectedCategorie) === JSON.stringify(this.oldCategorie)) {
+          return
+        }
+        CategoryService.update(this.selectedCategorie.id, {...this.selectedCategorie});
+        Object.assign(this.oldCategorie, this.selectedCategorie);
+      },
+      createCategorie() {
+        CategoryService.post({...this.selectedCategorie});
       }
-    }
   }
 };
 </script>

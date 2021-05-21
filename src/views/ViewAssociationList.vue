@@ -4,7 +4,7 @@
       <association-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
     </template>
     <association-list :search="search" @openDialogEditAssociation="openDialog" />
-    <edit-association v-model="selectedAssociation" :dialog="dialog" @close="closeDialog"/>
+    <edit-association v-model="selectedAssociation" :dialog="dialog" @cancel="cancel" @save="save"/>
   </list>
 </template>
 
@@ -26,25 +26,43 @@ export default {
   data: () => ({
     search: '',
     dialog: false,
-    selectedAssociation: {}
+    selectedAssociation: {},
+    oldAssociation: {},
   }),
   methods: {
     filtersChanged(field) {
       this.search = field;
     },
     openDialog(association) {
-      this.selectedAssociation = association;
+      this.selectedAssociation = association ? {...association} : {};
+      this.oldAssociation = association;
       this.dialog = true;
     },
-    closeDialog(association) {
+
+    cancel() {
+      Object.assign(this.selectedAssociation, this.oldAssociation);
       this.dialog = false;
-      if(association){
-          if(association.id == null)
-            AssociationService.post(association);
-          else
-            AssociationService.update(association.id, association);
+    },
+
+    save() {
+        if (this.selectedAssociation.id) {
+          this.checkAssociationChange();
+        } else {
+          this.createAssociation();
         }
-    }
+        this.selectedAssociation, this.oldAssociation = {};
+        this.dialog = false;
+      },
+      async checkAssociationChange() {
+        if (JSON.stringify(this.selectedAssociation) === JSON.stringify(this.oldAssociation)) {
+          return
+        }
+        AssociationService.update(this.selectedAssociation.id, {...this.selectedAssociation});
+        Object.assign(this.oldAssociation, this.selectedAssociation);
+      },
+      createAssociation() {
+        AssociationService.post({...this.selectedAssociation});
+      }
   }
 };
 </script>
