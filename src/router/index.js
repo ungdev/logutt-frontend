@@ -11,6 +11,10 @@ export default new Router({
       component: () => import("@/views/ViewHome.vue"),
     },
     {
+      path: "/login",
+      component: () => import("@/views/ViewLogin.vue"),
+    },
+    {
       path: "/liste-materiel",
       component: () => import("@/views/ViewObjectList.vue"),
     },

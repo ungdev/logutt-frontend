@@ -1,17 +1,17 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import JwtService from "@/common/jwt.service";
 
 const ApiService = {
   init() {
     Vue.use(VueAxios, axios);
+    Vue.axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
   },
 
-  setHeader() {
+  setHeader(token) {
     Vue.axios.defaults.headers.common[
       "Authorization"
-    ] = `Token ${JwtService.getToken}`;
+    ] = `Bearer ${token}`;
   },
   
   query(resource, params) {
