@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
+import navBar from "@/components/TheNavbar.vue";
+
 Vue.use(Router);
 
 export default new Router({
@@ -16,27 +18,45 @@ export default new Router({
     },
     {
       path: "/liste-materiel",
-      component: () => import("@/views/ViewObjectList.vue"),
+      components: {
+        navBar,
+        default: () => import("@/views/ViewObjectList.vue")
+      },
     },
     {
       path: "/liste-associations",
-      component: () => import("@/views/ViewAssociationList.vue"),
+      components: {
+        navBar,
+        default: () => import("@/views/ViewAssociationList.vue")
+      },
     },
     {
       path: "/liste-salles",
-      component: () => import("@/views/ViewStorageList.vue"),
+      components: {
+        navBar,
+        default: () => import("@/views/ViewStorageList.vue")
+      },
     },
     {
       path: "/calendrier",
-      component: () => import("@/views/ViewCalendrier.vue"),
+      components: {
+        navBar,
+        default: () => import("@/views/ViewCalendrier.vue")
+      },
     },
     {
       path: "/prets",
-      component: () => import("@/views/ViewPretList.vue"),
+      components: {
+        navBar,
+        default: () => import("@/views/ViewPretList.vue")
+      },
     },
     {
       path: "/liste-categories",
-      component: () => import("@/views/ViewCategorieList.vue"),
+      components: {
+        navBar,
+        default: () => import("@/views/ViewCategorieList.vue")
+      },
     }
   ]
 });
