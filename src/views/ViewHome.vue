@@ -20,11 +20,11 @@
 </template>
 
 <script>
-  import etuUTTservice from '../service/etuUtt.service';
+  import auth from '../common/auth';
   export default {
     name: 'ViewHome',
     data: () => ({
-      etuAuth: etuUTTservice.auth.redirectURL
+      etuAuth: auth.redirectURL
     }),
     methods: {
       redirectSiteEtu() {

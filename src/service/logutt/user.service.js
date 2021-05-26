@@ -1,11 +1,11 @@
 import ApiService from "../api.service";
 import { API_URL } from "@/common/config";
 
-const ressource = API_URL + "users"
+const ressource = API_URL + "users/"
 
 export default {
-    login() {
-      return ApiService.get(API_URL + "login");
+    login(code) {
+      return ApiService.post(API_URL + "login", {code});
     },
     get(userId = "") {
       return ApiService.get(ressource, userId);
