@@ -1,11 +1,14 @@
 <template>
-  <list>
-    <template v-slot:searchBar>
-      <association-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
-    </template>
-    <association-list :search="search" @openDialogEditAssociation="openDialog" />
-    <edit-association v-model="selectedAssociation" :dialog="dialog" @cancel="cancel" @save="save"/>
-  </list>
+  <div>
+    <h1 class="headtitle">Liste des associations</h1>
+    <list>
+      <template v-slot:searchBar>
+        <association-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
+      </template>
+      <association-list :search="search" @openDialogEditAssociation="openDialog" />
+      <edit-association v-model="selectedAssociation" :dialog="dialog" @cancel="cancel" @save="save"/>
+    </list>
+  </div>
 </template>
 
 

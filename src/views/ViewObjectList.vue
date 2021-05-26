@@ -1,5 +1,7 @@
 <template>
-  <list>
+<div>
+  <h1 class="headtitle">Inventaire</h1>
+<list>
     <template v-slot:searchBar>
       <object-filter @set-filters="filtersChanged" @open-dialog="openDialog" />
     </template>
@@ -12,6 +14,8 @@
       @cancel="cancel"
     />
   </list>
+</div>
+  
 </template>
 
 <script>
@@ -78,4 +82,7 @@ export default {
 </script>
 
 <style lang="scss">
+  #menu {
+    display: inline;
+  }
 </style>

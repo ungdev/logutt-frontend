@@ -16,8 +16,6 @@
 
 <script>
   export default {
-    props: {
-    },
     data: () => ({
     }),
     methods: {

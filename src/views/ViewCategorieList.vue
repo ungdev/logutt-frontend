@@ -1,11 +1,14 @@
 <template>
-  <list>
-    <template v-slot:searchBar>
-      <categorie-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
-    </template>
-    <categorie-list :search="search" @openDialogNewSubCategorie="openDialogNewSubCategorie" @openDialogEditCategorie="openDialog"/>
-    <edit-categorie v-model="selectedCategorie" :dialog="dialog" @save="save" @cancel="cancel"/>
-  </list>
+  <div>
+    <h1 class="headtitle">Catégories</h1>
+    <list>
+      <template v-slot:searchBar>
+        <categorie-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
+      </template>
+      <categorie-list :search="search" @openDialogNewSubCategorie="openDialogNewSubCategorie" @openDialogEditCategorie="openDialog"/>
+      <edit-categorie v-model="selectedCategorie" :dialog="dialog" @save="save" @cancel="cancel"/>
+    </list>
+  </div>
 </template>
 
 <script>

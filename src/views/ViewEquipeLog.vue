@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="headtitle">Liste des prêts</h1>
-    <p>Liste des prêts : fonctionnalité à venir</p>
+    <h1 class="headtitle">Équipe log - Nom Asso</h1>
+    <p>équipe log : fonctionnalité à venir</p>
   </div>
 </template>
 

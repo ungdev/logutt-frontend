@@ -33,6 +33,10 @@ export default new Router({
     {
       path: "/liste-categories",
       component: () => import("@/views/ViewCategorieList.vue"),
+    },
+    {
+      path: "/equipe-log",
+      component: () => import("@/views/ViewEquipeLog.vue"),
     }
   ]
 });

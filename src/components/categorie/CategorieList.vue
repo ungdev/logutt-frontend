@@ -43,7 +43,6 @@
                     </td>
                   </tr>
                 </tbody>
-                <p>Mettre un bouton pour ajouter une sous catégorie</p>
               </template>
             </v-simple-table>
           </v-expansion-panel-content>

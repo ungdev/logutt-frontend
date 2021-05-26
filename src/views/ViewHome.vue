@@ -1,6 +1,6 @@
 <template>
     <div class="animation">
-        <h1>LogUTT</h1>
+        <h1 class="appli_title">LogUTT</h1>
         <h3>APPLICATION DE GESTION D'INVENTAIRE</h3>
         
         <router-link tag="home" to="/liste-materiel">
@@ -33,28 +33,30 @@
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
 body {
-  background: #333;
   height: 100vh;
   display: flex;
   justify-content: center;
-  overflow: hidden;
-}
-
-.v-application--wrap {
-    background:#333!important;
+  /**overflow: hidden;*/
 }
 
 .v-application a {
     color: turquoise;
 }
 
+#menu {
+  display: none;
+}
+
 .animation {
-    margin-top: 40vh; 
-    transform: translateY(-50%);
+    background-color: #333;
+    height: 100vh;
+    padding-top: 30vh; 
     text-align: center;
 }
-h1 {
+.appli_title {
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
   font-weight: 900;
@@ -87,7 +89,6 @@ h3 {
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
 @keyframes boxShadow {
   0% {box-shadow: 6px 6px 0 tomato;}
@@ -187,5 +188,4 @@ path.two {
         fill: white;
     }
 }
-
 </style>

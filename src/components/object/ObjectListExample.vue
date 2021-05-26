@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container>    
     <v-data-table 
       :headers="headers" 
       :items="objects"

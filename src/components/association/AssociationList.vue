@@ -75,6 +75,7 @@ export default {
   methods: {
     openDialogEditAssociation(association) {
       this.$emit('openDialogEditAssociation', association);
+      console.log(association);
     },
   },
   mounted() {

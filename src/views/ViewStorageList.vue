@@ -1,16 +1,19 @@
 <template>
-  <list>
-    <template v-slot:searchBar>
-      <storage-filter @set-filters="filtersChanged" @open-dialog="openDialog" />
-    </template>
-    <storage-list :search="search" @openDialogEditSalle="openDialog" />
-    <edit-storage
-      v-model="selectedStorage"
-      :dialog="dialog"
-      @cancel="cancel"
-      @save="save"
-    />
-  </list>
+  <div>
+    <h1 class="headtitle">Lieux de stockage</h1>
+    <list>
+      <template v-slot:searchBar>
+        <storage-filter @set-filters="filtersChanged" @open-dialog="openDialog" />
+      </template>
+      <storage-list :search="search" @openDialogEditSalle="openDialog" />
+      <edit-storage
+        v-model="selectedStorage"
+        :dialog="dialog"
+        @cancel="cancel"
+        @save="save"
+      />
+    </list>
+  </div>
 </template>
 
 
