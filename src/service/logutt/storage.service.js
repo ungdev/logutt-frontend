@@ -1,6 +1,7 @@
-import ApiService from "./api.service";
+import ApiService from "../api.service";
+import { API_URL } from "@/common/config";
 
-const ressource = "storages";
+const ressource = API_URL + "storages";
 
 export default {
   get(storageId = "") {

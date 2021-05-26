@@ -23,8 +23,8 @@ import ObjectList from "../components/object/ObjectList.vue";
 import EditObject from "../components/object/EditObject.vue";
 import ObjectFilter from "../components/object/ObjectFilter.vue";
 import List from "../components/List.vue";
-import CategoryService from "../service/category.service";
-import ObjectService from "../service/object.service";
+import CategoryService from "../service/logutt/category.service";
+import ObjectService from "../service/logutt/object.service";
 export default {
   name: "ViewObjectList",
   components: {

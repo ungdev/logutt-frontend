@@ -1,6 +1,7 @@
-import ApiService from "./api.service";
+import ApiService from "../api.service";
+import { API_URL } from "@/common/config";
 
-const ressource = "categories"
+const ressource = API_URL + "categories"
 
 export default {
     get(categoryId = "") {

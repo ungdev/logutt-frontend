@@ -115,9 +115,8 @@
 </template>
 
 <script>
-import ObjectService from "../../service/object.service";
-import CategoryService from "../../service/category.service";
-
+import ObjectService from "../../service/logutt/object.service";
+import CategoryService from "../../service/logutt/category.service";
   export default {
     name: "ObjectList",
     props: {

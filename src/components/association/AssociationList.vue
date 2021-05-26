@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import AssociationService from "../../service/association.service";
+import AssociationService from "../../service/logutt/association.service";
 import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
