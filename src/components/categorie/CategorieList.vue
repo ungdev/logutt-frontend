@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import CategoryService from "../../service/logutt/category.service";
+import {category as CategoryService} from "../../service/logUTT.service";
 import VIconSuppression from "../VIconSuppression.vue";
 
 export default {

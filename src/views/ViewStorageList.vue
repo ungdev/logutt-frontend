@@ -19,7 +19,7 @@ import StorageFilter from "../components/storage/StorageFilter.vue";
 import StorageList from "../components/storage/StorageList";
 import EditStorage from "../components/storage/EditStorage.vue";
 import List from "../components/List";
-import StorageService from "../service/logutt/storage.service";
+import {storage as StorageService} from "../service/logUTT.service";
 
 export default {
   name: "ViewSalleList",

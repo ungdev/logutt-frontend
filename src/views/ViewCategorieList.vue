@@ -13,7 +13,7 @@ import CategorieFilter from '../components/categorie/CategorieFilter.vue';
 import CategorieList from "../components/categorie/CategorieList";
 import EditCategorie from '../components/categorie/EditCategorie.vue';
 import List from "../components/List";
-import CategoryService from '../service/logutt/category.service';
+import {category as CategoryService} from "../service/logUTT.service";
 
 export default {
   name: "ViewCategorieList",

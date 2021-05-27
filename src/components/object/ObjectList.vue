@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import ObjectService from "../../service/logutt/object.service";
+import {object as ObjectService} from "../../service/logUTT.service";
   export default {
     name: "ObjectList",
     props: {
