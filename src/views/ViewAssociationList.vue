@@ -17,7 +17,7 @@ import AssociationFilter from '../components/association/AssociationFilter.vue';
 import AssociationList from "../components/association/AssociationList";
 import EditAssociation from '../components/association/EditAssociation.vue';
 import List from "../components/List";
-import AssociationService from '../service/logutt/association.service';
+import {association as AssociationService} from "../service/logUTT.service";
 
 export default {
   components: {

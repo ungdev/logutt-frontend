@@ -4,15 +4,17 @@ import router from "./router";
 import vuetify from './plugins/vuetify';
 
 import ApiService from "./service/api.service";
+import auth from "./common/auth";
 
 Vue.config.productionTip = false
 
 ApiService.init();
 
-// Ensure we checked user auth before each page load.
 router.beforeEach((to, from, next) => {
-  console.log("waiting for auth system");
-  next();
+  if (!['/', '/login'].includes(to.path) && !auth.getCurrentUser()){ 
+    next({ path: '/' })
+  }
+  else next()
 });
 
 new Vue({

@@ -69,8 +69,7 @@
 </template>
 
 <script>
-  import ObjectService from '../../service/logutt/object.service';
-  import CategoryService from '../../service/logutt/category.service';
+  import {category as CategoryService, object as ObjectService} from "../../service/logUTT.service";
   import EditObject from './EditObject';
   export default {
     name: "ObjectList",
