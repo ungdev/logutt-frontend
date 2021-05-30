@@ -1,9 +1,8 @@
 <template>
     <div class="animation">
+      
         <h1 class="appli_title">LogUTT</h1>
         <h3>APPLICATION DE GESTION D'INVENTAIRE</h3>
-        
-        <router-link tag="home" to="/liste-materiel">
         <div class="wrapper">
           <a class="btn-connexion" @click="redirectSiteEtu">
             <span>CONNEXION</span>
@@ -18,6 +17,7 @@
             </span> 
           </a>
         </div>
+      
     </div>
 </template>
 
@@ -51,16 +51,13 @@ body {
     color: turquoise;
 }
 
-#menu {
-  display: none;
-}
-
 .animation {
     background-color: #333;
-    height: 100vh;
-    padding-top: 30vh; 
+    height: 100%;
+    padding-top: 10%;
     text-align: center;
-}
+  }
+
 .appli_title {
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
@@ -76,7 +73,7 @@ h3 {
   text-transform: uppercase;
   color: white;
   font-size: 3vw; 
-  margin-bottom: 10%;
+  margin-bottom: 3%;
 }
 
 @keyframes text {
