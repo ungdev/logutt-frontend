@@ -5,7 +5,7 @@ const CLIENT_ID = process.env.VUE_APP_ETU_UTT_CLIENT_ID;
 // const CLIENT_SECRET = process.env.VUE_APP_ETU_UTT_CLIENT_SECRET;
 
 const Auth = {
-  redirectURL: ETU_URL + "oauth/authorize?client_id=" + CLIENT_ID,
+  redirectURL: ETU_URL + "oauth/authorize?client_id=" + CLIENT_ID + "&scope=public%20private_user_account",
   async login(code) {
     const user = await UserService.login(code)
       .then(response => response.data.user)
