@@ -18,7 +18,7 @@ const Auth = {
     localStorage.removeItem('user-data');
   },
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user-data'));
+    return localStorage.getItem('user-data') ? JSON.parse(localStorage.getItem('user-data')) : false;
   }
 };
 
