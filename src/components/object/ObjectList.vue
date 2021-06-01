@@ -115,8 +115,8 @@
 </template>
 
 <script>
-import {object as ObjectService} from "../../service/logUTT.service";
-import {category as CategoryService} from "../../service/logUTT.service";
+
+import {object as ObjectService, category as CategoryService} from "../../service/logUTT.service";
 
 export default {
     name: "ObjectList",
