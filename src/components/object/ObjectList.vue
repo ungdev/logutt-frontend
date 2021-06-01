@@ -116,8 +116,9 @@
 
 <script>
 import {object as ObjectService} from "../../service/logUTT.service";
-import CategoryService from "../../service/logutt/category.service";
-  export default {
+import {category as CategoryService} from "../../service/logUTT.service";
+
+export default {
     name: "ObjectList",
     props: {
       search: String,
