@@ -3,7 +3,7 @@ import ApiService from "./api.service";
 const API_URL = process.env.VUE_APP_API_URL;
 
 const association = {
-    ressource: API_URL + "association",
+    ressource: API_URL + "associations",
     get(associationId = "") {
       return ApiService.get(this.ressource, associationId);
     },

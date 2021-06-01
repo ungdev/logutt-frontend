@@ -138,7 +138,7 @@ export default {
 
       getCategorieNameById(categorieId) {
         const categorieName = this.categories.find(categorie => categorie.id == categorieId);
-        return categorieName.name;
+        return categorieName ? categorieName.name : 'sans catégorie';
       },
     },
     mounted() {
