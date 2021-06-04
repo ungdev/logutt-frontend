@@ -14,9 +14,7 @@
     "vue": "^2.6.11",
     "vue-axios": "^3.2.4",
     "vue-router": "^3.5.1",
-    "vuetify": "^2.4.0"
-  },
-  "devDependencies": {
+    "vuetify": "^2.4.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
