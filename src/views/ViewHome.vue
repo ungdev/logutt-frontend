@@ -121,6 +121,10 @@ h3 {
    outline: none; 
 }
 
+.btn-connexion span {
+   color: turquoise; 
+}
+
 .btn-connexion:hover {
     transition: 0.5s;
     box-shadow: 10px 10px 0 gold;

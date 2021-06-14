@@ -9,8 +9,12 @@
                 <li><router-link to="/liste-associations" class="texte-menu">Associations</router-link></li>
                 <li><router-link to="/equipe-log" class="texte-menu">Équipe log</router-link></li>
                 <li><router-link to="/liste-salles" class="texte-menu">Espaces de stockage</router-link></li>
-                <li><div class="user-name"><v-icon> mdi-account </v-icon>Nom Prénom</div></li>
-                <li><a href="#menu-closed">&#215; Close menu</a></li>
+                <li>
+                  <div class="user-name">
+                    <v-icon> mdi-account </v-icon>{{ this.currentUser.firstName }} {{ this.currentUser.lastName }}
+                  </div>
+                </li>
+                <li><a href="#menu-closed">&#215; Fermer</a></li>
                 <li><a href="#menu" class="case-menu-phone">&#9776; Menu</a></li>
             </ul>
         </nav>
@@ -18,13 +22,20 @@
 
 
 <script>
+  import Auth from "../common/auth.js";
     export default {
         name: "Menu",
         data () {
             return {
-                publicPath: process.env.BASE_URL
+                publicPath: process.env.BASE_URL,
+                currentUser: Auth.getCurrentUser()
             }
-        }
+        },
+        methods: {
+          deconnexion() {
+            console.log("cerf");
+          }
+        },
     };
 </script>
 
@@ -113,12 +124,6 @@ nav#menu:target li:nth-last-child(2) {
   right: 0;
   margin: 0;
   border-left: 2px solid rgb(19, 51, 61);
-}
-
-.logo-logutt {
-    width: 40px;
-    margin-right: 15px;
-    margin-left: 15px;
 }
 
 </style>
