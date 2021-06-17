@@ -34,9 +34,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Kevin</td>
-                    <td>cerf@utt</td>
-                    <td>Con</td>
+                    <td>Leclerc Oscar</td>
+                    <td>oscar.leclerc@utt</td>
+                    <td>Admin</td>
                     <td>
                       <v-btn icon class="btn-icon">
                         <v-icon color="grey lighten-1">mdi-square-edit-outline</v-icon>
@@ -46,7 +46,7 @@
                     </td>
                   </tr>
                 </tbody>
-                <p>Mettre un bouton pour ajouter un etu à l'asso</p>
+                <!-- Mettre un bouton pour ajouter un etu à l'asso -->
               </template>
             </v-simple-table>
           </v-expansion-panel-content>
