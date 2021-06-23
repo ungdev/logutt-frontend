@@ -23,7 +23,7 @@
         <v-btn color="blue darken-1" text @click="validSupp = false">
           Annuler
         </v-btn>
-        <v-btn color="blue darken-1" text @click="confirmer">
+        <v-btn color="blue darken-1" text @click="suppression">
           Supprimer
         </v-btn>
       </v-card-actions>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import {category as CategorieService, association as AssociationService, storage as StorageService} from "../service/logUTT.service";
+import {category as CategorieService, association as AssociationService, storage as StorageService, object as ObjectService} from "../service/logUTT.service";
 
 export default {
   name: "VIconSuppression",
@@ -46,14 +46,18 @@ export default {
   props: ['database', 'donnees'],
 
   methods: {
-    confirmer: function () {
+    suppression: function () {
       this.validSupp = false;
       switch (this.database) {
         case 'listeSalle':  // BDD des salles de stockage
           StorageService.delete(this.donnees.id)
+          //this.$emit('suppression', this.donnees);
           break;
         case 'listeAsso':
           AssociationService.delete(this.donnees.id);
+          break;
+        case 'listeObject':
+          ObjectService.delete(this.donnees.id);
           break;
         case 'listeCategorie':
           CategorieService.delete(this.donnees.id)

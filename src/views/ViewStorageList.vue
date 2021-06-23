@@ -5,7 +5,7 @@
       <template v-slot:searchBar>
         <storage-filter @set-filters="filtersChanged" @open-dialog="openDialog" />
       </template>
-      <storage-list :search="search" @openDialogEditSalle="openDialog" />
+      <storage-list :search="search" @openDialogEditSalle="openDialog" v-model="listStorage" @suppressionStorage="aled(salle)"/>
       <edit-storage
         v-model="selectedStorage"
         :dialog="dialog"
@@ -38,6 +38,7 @@ export default {
     dialog: false,
     selectedStorage: {},
     oldStorage: {},
+    listStorage: [],
   }),
   methods: {
     filtersChanged(field) {
@@ -63,6 +64,19 @@ export default {
       this.selectedStorage, (this.oldStorage = {});
       this.dialog = false;
     },
+
+    aled: function (salle) {
+      console.log("ViewListe");
+      let c = salle;
+      console.log("Salle : " + c);
+      /**const index = this.listStorage.indexOf(salle);
+      if (index > -1) {
+        this.listStorage.splice(index, 1);
+        StorageService.delete(salle.id)
+      }*/
+      console.log(this.listStorage);
+    },
+
     async checkStorageChange() {
       if (JSON.stringify(this.selectedStorage) === JSON.stringify(this.oldStorage)) {
         return;
@@ -72,7 +86,21 @@ export default {
     },
     createStorage() {
       StorageService.post({ ...this.selectedStorage });
+      this.getListStorage();
     },
+
+  /**
+   * Permet de récupérer la liste de tous les lieux de stockage
+   */
+    getListStorage() {
+      StorageService.get().then((res) => {
+        this.listStorage = res.data
+      });
+    }
+  },
+
+  mounted() {
+    this.getListStorage();
   },
 };
 </script>

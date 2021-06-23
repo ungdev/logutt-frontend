@@ -1,7 +1,7 @@
 <template>
   <v-data-iterator
     subheader
-    :items="salles"
+    :items="value"
     item-key="id"
     :search="search"
   >
@@ -29,7 +29,7 @@
                 </v-btn>
 
                 <!-- Icon de suppression d'un élément -->
-                <VIconSuppression database="listeSalle" :donnees=salle />
+                <VIconSuppression database="listeSalle" :donnees=salle @suppression="suppressionStorage(salle)"/>
 
               </v-list-item-action>
             </v-col>
@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import {storage as StorageService} from "../../service/logUTT.service";
 import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
@@ -49,6 +48,7 @@ export default {
     VIconSuppression
   },
   props: {
+    value: Array,
     search: String,
   },
   data() {
@@ -62,16 +62,17 @@ export default {
         },
         { text: "Localisation dans l'UTT", value: "room" },
       ],
-      salles: [],
     };
   },
   methods: {
     openDialogEditSalle(salle) {
       this.$emit('openDialogEditSalle', salle);
     },
-  },
-  mounted() {
-    StorageService.get().then((res) => (this.salles = res.data));
+
+    suppressionStorage: function (salle) {
+      console.log("StorageList");
+      this.$emit('suppressionStorage', salle);
+    }
   },
 };
 </script>
