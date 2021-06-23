@@ -5,7 +5,7 @@
       <template v-slot:searchBar>
         <association-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
       </template>
-      <association-list :search="search" @openDialogEditAssociation="openDialog" />
+      <association-list :search="search" v-model="listAssociation" @openDialogEditAssociation="openDialog" />
       <edit-association v-model="selectedAssociation" :dialog="dialog" @cancel="cancel" @save="save"/>
     </list>
   </div>
@@ -31,6 +31,7 @@ export default {
     dialog: false,
     selectedAssociation: {},
     oldAssociation: {},
+    listAssociation: [],
   }),
   methods: {
     filtersChanged(field) {
@@ -65,8 +66,23 @@ export default {
       },
       createAssociation() {
         AssociationService.post({...this.selectedAssociation});
-      }
-  }
+        this.getListAssociation();
+      },
+
+    /**
+     * Permet de récupérer la liste de tous les lieux de stockage
+     */
+    getListAssociation() {
+      AssociationService.get().then((res) => {
+        this.listAssociation = res.data
+      });
+    }
+      
+  },
+
+  mounted() {
+    this.getListAssociation();
+  },
 };
 </script>
 

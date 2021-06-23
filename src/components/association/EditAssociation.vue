@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
       <v-card>
         <v-card-title>
-          <span v-if="value.id" class="headline">Éditer l'association</span>
+          <span v-if="value.id" class="headline">Modifier l'association</span>
           <span v-else class="headline">Nouvelle associatiton</span>
         </v-card-title>
         <v-card-text>

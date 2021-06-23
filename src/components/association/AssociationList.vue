@@ -1,7 +1,7 @@
 <template>
   <v-data-iterator
     subheader
-    :items="associations"
+    :items="value"
     item-key="id"
     :search="search"
   >
@@ -57,7 +57,6 @@
 </template>
 
 <script>
-import {association as AssociationService} from "../../service/logUTT.service";
 import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
@@ -65,21 +64,16 @@ export default {
     VIconSuppression
   },
   props: {
+    value: Array,
     search: String,
   },
-  data() {
-    return {
-      associations: [],
-    };
-  },
+  data: () => ({
+    }),
   methods: {
     openDialogEditAssociation(association) {
       this.$emit('openDialogEditAssociation', association);
       console.log(association);
     },
-  },
-  mounted() {
-    AssociationService.get().then((res) => (this.associations = res.data));
   },
 };
 </script>
