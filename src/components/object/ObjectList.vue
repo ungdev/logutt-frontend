@@ -1,7 +1,7 @@
 <template>
   <v-data-iterator
     subheader
-    :items="objects"
+    :items="value"
     item-key="id"
     :search="search"
   >
@@ -15,12 +15,14 @@
             <strong>{{ objet.name }}</strong>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-            <v-btn icon class="btn-icon" @click="showObjet(objet)">
+            <v-btn icon class="btn-icon" @click="show()">
               <v-icon color="grey lighten-1">mdi-plus-box</v-icon>
             </v-btn>
             <v-btn icon class="btn-icon" @click="openDialogEditObject(objet)">
               <v-icon color="grey lighten-1">mdi-square-edit-outline</v-icon>
             </v-btn>
+            <!-- Icon de suppression d'un élément -->
+            <VIconSuppression database="listeObject" :donnees=objet />
             
             <v-row>
               <v-col cols="6" sm="6" md="6">
@@ -116,15 +118,20 @@
 
 <script>
 
-import {object as ObjectService, category as CategoryService} from "../../service/logUTT.service";
+import {category as CategoryService, objectInstance as ObjetInstanceService} from "../../service/logUTT.service";
+import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
     name: "ObjectList",
+    components: {
+      VIconSuppression
+    },
     props: {
+      value: Array,
       search: String,
     },
     data: () => ({
-      objects: [],
+      instancesObject: {},
       categories: [],
     }),
     methods: {
@@ -132,8 +139,19 @@ export default {
         this.$emit('openDialogEditObject', object);
       },
 
-      showObjet(object) {
-        console.log(object);
+      add(object) {
+        ObjetInstanceService.post(object.id, {
+          identifier: "Wazoooooo", object_id: 1, association_id: 3, storage_id: 1
+        })
+      },
+
+      show() {
+        this.objects.forEach(objet => {
+          ObjetInstanceService.get(objet.id).then((res) => (
+            console.log(res.data)
+          ));
+        });
+        console.log("finito");
       },
 
       getCategorieNameById(categorieId) {
@@ -142,7 +160,6 @@ export default {
       },
     },
     mounted() {
-      ObjectService.get().then((res) => (this.objects = res.data));
       CategoryService.get().then((res) => (this.categories = res.data));
     },
   }

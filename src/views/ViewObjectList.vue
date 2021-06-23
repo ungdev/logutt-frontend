@@ -5,7 +5,7 @@
     <template v-slot:searchBar>
       <object-filter @set-filters="filtersChanged" @open-dialog="openDialog" />
     </template>
-    <object-list :search="search" @openDialogEditObject="openDialog" />
+    <object-list :search="search" v-model="listObject" @openDialogEditObject="openDialog" />
     <edit-object
       v-model="selectedObject"
       :categories="categories"
@@ -37,11 +37,10 @@ export default {
     dialog: false,
     selectedObject: {},
     oldObject: {},
+    listObject: [],
     categories: [],
   }),
-  mounted() {
-    CategoryService.get().then((res) => (this.categories = res.data));
-  },
+
   methods: {
     filtersChanged(field) {
       this.search = field;
@@ -75,7 +74,22 @@ export default {
     },
     createObjet() {
       ObjectService.post({ ...this.selectedObject });
+      this.getListObject();
     },
+
+    /**
+     * Permet de récupérer la liste de tous les objets
+     */
+    getListObject() {
+      ObjectService.get().then((res) => {
+        this.listObject = res.data;
+      });
+    }
+  },
+
+  mounted() {
+    CategoryService.get().then((res) => (this.categories = res.data));
+    this.getListObject();
   },
 };
 </script>
