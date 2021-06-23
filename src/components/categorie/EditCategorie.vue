@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
       <v-card>
         <v-card-title>
-          <span v-if="value.id" class="headline">{{ this.value.name }}</span>
+          <span v-if="value.id" class="headline">Modifier la catégorie</span>
           <span v-else-if="value.parent_id" class="headline">Nouvelle sous-catégorie</span>
           <span v-else class="headline">Nouvelle catégorie</span>
         </v-card-title>

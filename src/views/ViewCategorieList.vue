@@ -5,7 +5,7 @@
       <template v-slot:searchBar>
         <categorie-filter @set-filters="filtersChanged" @open-dialog="openDialog"/>
       </template>
-      <categorie-list :search="search" @openDialogNewSubCategorie="openDialogNewSubCategorie" @openDialogEditCategorie="openDialog"/>
+      <categorie-list :search="search" v-model="listCategorie" @openDialogNewSubCategorie="openDialogNewSubCategorie" @openDialogEditCategorie="openDialog"/>
       <edit-categorie v-model="selectedCategorie" :dialog="dialog" @save="save" @cancel="cancel"/>
     </list>
   </div>
@@ -30,7 +30,8 @@ export default {
     search: '',
     dialog: false,
     selectedCategorie: {},
-    oldCategorie: {}
+    oldCategorie: {},
+    listCategorie: [],
   }),
   methods: {
     filtersChanged(field) {
@@ -69,8 +70,22 @@ export default {
       },
       createCategorie() {
         CategoryService.post({...this.selectedCategorie});
-      }
-  }
+        this.getListCategorie();
+      },
+
+    /**
+     * Permet de récupérer la liste de toutes les catégorie
+     */
+    getListCategorie() {
+      CategoryService.get().then((res) => {
+        this.listCategorie = res.data
+      });
+    }
+  },
+
+  mounted() {
+    this.getListCategorie();
+  },
 };
 </script>
 

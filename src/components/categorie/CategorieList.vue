@@ -1,7 +1,7 @@
 <template>
   <v-data-iterator
     subheader
-    :items="categories"
+    :items="value"
     item-key="id"
     :search="search"
   >
@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import {category as CategoryService} from "../../service/logUTT.service";
 import VIconSuppression from "../VIconSuppression.vue";
 
 export default {
@@ -62,6 +61,7 @@ export default {
     VIconSuppression
   },
   props: {
+    value: Array,
     search: String,
   },
   data() {
@@ -84,9 +84,6 @@ export default {
     openDialogNewSubCategorie(parentCategorie) {
       this.$emit('openDialogNewSubCategorie', parentCategorie);
     },
-  },
-  mounted() {
-    CategoryService.get().then((res) => (this.categories = res.data));
   },
 };
 </script>
